@@ -1,0 +1,214 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "invoice API"
+  },
+  "host": "127.0.0.1:5000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/invoices": {
+      "get": {
+        "description": "Get all the invoices in the database",
+        "summary": "Get invoices",
+        "operationId": "GetOperations",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/invoices/{InvoiceId}": {
+      "get": {
+        "description": "Get single invoice",
+        "summary": "Get invoice",
+        "operationId": "GetOperationsSingle",
+        "parameters": [
+          {
+            "name": "InvoiceId",
+            "in": "path",
+            "description": "Id of the invoice",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/invoices/add": {
+      "post": {
+        "description": "Create new invoice",
+        "summary": "Create invoice",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "PostOperations",
+        "parameters": [
+          {
+            "name": "CustomerId",
+            "in": "formData",
+            "description": "Id of the customer",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "InvoiceDate",
+            "in": "formData",
+            "description": "Date of the invoice",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "BillingAddress",
+            "in": "formData",
+            "description": "Address of the customer",
+            "type": "string"
+          },
+          {
+            "name": "BillingCity",
+            "in": "formData",
+            "description": "City name",
+            "type": "string"
+          },
+          {
+            "name": "BillingCountry",
+            "in": "formData",
+            "description": "Country name",
+            "type": "string"
+          },
+          {
+            "name": "BillingState",
+            "in": "formData",
+            "description": "State name",
+            "type": "string"
+          },
+          {
+            "name": "BillingPostalCode",
+            "in": "formData",
+            "description": "Postal code",
+            "type": "string"
+          },
+          {
+            "name": "Total",
+            "in": "formData",
+            "description": "Total amount in currency",
+            "type": "number",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/invoices/update/{InvoiceId}": {
+      "put": {
+        "description": "Update an existing invoice",
+        "summary": "Update invoice",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "PutOperations",
+        "parameters": [
+          {
+            "name": "InvoiceId",
+            "in": "path",
+            "description": "Id of the invoice",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "CustomerId",
+            "in": "formData",
+            "description": "Id of the customer",
+            "type": "integer"
+          },
+          {
+            "name": "InvoiceDate",
+            "in": "formData",
+            "description": "Date of the invoice",
+            "type": "string"
+          },
+          {
+            "name": "BillingAddress",
+            "in": "formData",
+            "description": "Address of the customer",
+            "type": "string"
+          },
+          {
+            "name": "BillingCity",
+            "in": "formData",
+            "description": "City name",
+            "type": "string"
+          },
+          {
+            "name": "BillingCountry",
+            "in": "formData",
+            "description": "Country name",
+            "type": "string"
+          },
+          {
+            "name": "BillingState",
+            "in": "formData",
+            "description": "State name",
+            "type": "string"
+          },
+          {
+            "name": "BillingPostalCode",
+            "in": "formData",
+            "description": "Postal code",
+            "type": "string"
+          },
+          {
+            "name": "Total",
+            "in": "formData",
+            "description": "Total amount in currency",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/invoices/delete/{InvoiceId}": {
+      "delete": {
+        "description": "Delete an invoice",
+        "summary": "Delete invoice",
+        "operationId": "DelOperations",
+        "parameters": [
+          {
+            "name": "InvoiceId",
+            "in": "path",
+            "description": "Id of the invoice",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  }
+}
